@@ -47,3 +47,6 @@ Output JSON for automation:
 - Exit codes:  
   0 → soundness verified (match or no expected provided)  
   2 → mismatch or RPC failure.  
+- Works for EOAs, smart contracts, and multi-sig wallets equally — it simply reads the on-chain balance.  
+- Can be integrated into monitoring scripts for bridges, vaults, or rollup deposit contracts.  
+- For reproducibility, always use a specific block number instead of “latest”.  
