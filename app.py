@@ -36,7 +36,11 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     start_time = time.time()
     args = parse_args()
-
+ # Validate address format early
+    if not Web3.is_address(args.address):
+        print("❌ Invalid Ethereum address format. Please check and try again.")
+        sys.exit(1)
+        
     w3 = Web3(Web3.HTTPProvider(args.rpc, request_kwargs={"timeout": args.timeout}))
     if not w3.is_connected():
         print("❌ RPC connection failed. Check your RPC_URL or --rpc parameter.")
